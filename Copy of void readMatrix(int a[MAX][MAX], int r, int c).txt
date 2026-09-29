@@ -1,0 +1,45 @@
+void readMatrix(int a[MAX][MAX], int *r, int *c)
+{
+    int i, j;
+    int counter;
+
+    while(1)
+    {
+        counter = 0;
+        printf("Enter number of rows and columns: ");
+        scanf("%d%d", r, c);
+
+        printf("Enter matrix elements:\n");
+
+        for(i = 0; i < *r; i++)
+        {
+            for(j = 0; j < *c; j++)
+            {
+                scanf("%d", &a[i][j]);
+
+                /* Count the number of zero elements */
+                if(a[i][j] == 0)
+                {
+                    {
+                        counter++;
+                    }
+                }
+            }
+        }
+
+        /* Check whether the matrix is sparse */
+        if(counter > ((*r * *c) / 2))
+        {
+            printf("\nThe given matrix is a Sparse Matrix.\n");
+            printf("Number of zeros = %d\n", counter);
+            break;
+        }
+        else
+        {
+            printf("\nThe given matrix is NOT a Sparse Matrix.\n");
+            printf("Number of zeros = %d\n", counter);
+            printf("Please enter a Sparse Matrix again.\n\n");
+        }
+    }
+}
+
